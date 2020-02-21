@@ -25,9 +25,11 @@ function chatScreen() {
 function barberScreen() {
   return <Barber />;
 }
+
 function keranjangScreen() {
   return <Keranjang />;
 }
+
 function userScreen() {
   return <User />;
 }
