@@ -10,7 +10,6 @@ import 'react-native-gesture-handler';
 
 import Home from './Screen/index';
 import Chat from './Screen/chat';
-import Barber from './Screen/barber';
 import Keranjang from './Screen/keranjang';
 import User from './Screen/user';
 
@@ -20,10 +19,6 @@ function homeScreen() {
 
 function chatScreen() {
   return <Chat />;
-}
-
-function barberScreen() {
-  return <Barber />;
 }
 
 function keranjangScreen() {
@@ -56,8 +51,11 @@ export default class App extends React.Component {
             name="home"
             component={homeScreen}
             options={{
-              tabBarIcon: ({color, size}) => (
-                <Icon name="home" color={color} size={size} />
+              tabBarIcon: ({focused}) => (
+                <Image
+                  source={focused ? barberIcon : barberIcon2}
+                  style={{height: 35, width: 35}}
+                />
               ),
             }}
           />
@@ -67,18 +65,6 @@ export default class App extends React.Component {
             options={{
               tabBarIcon: ({color, size}) => (
                 <Icon name="bubble" color={color} size={size} />
-              ),
-            }}
-          />
-          <Tab.Screen
-            name="barber"
-            component={barberScreen}
-            options={{
-              tabBarIcon: ({focused}) => (
-                <Image
-                  source={focused ? barberIcon : barberIcon2}
-                  style={{height: 35, width: 35}}
-                />
               ),
             }}
           />
